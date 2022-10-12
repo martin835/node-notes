@@ -19,7 +19,7 @@ import { InMemoryNotesStore } from "./models/notes-memory.mjs";
 export const NotesStore = new InMemoryNotesStore();
 
 import { router as indexRouter } from "./routes/index.mjs";
-//import { router as notesRouter } from "./routes/notes.mjs";
+import { router as notesRouter } from "./routes/notes.mjs";
 
 export const app = express();
 
@@ -38,7 +38,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Router function lists
 app.use("/", indexRouter);
-//app.use("/notes", notesRouter);
+app.use("/notes", notesRouter);
 
 // error handlers
 // catch 404 and forward to error handler
